@@ -23,11 +23,34 @@ Mis Reglas
 5. Parámetros explícitos en CADA llamada a Higgsfield
 6. Documentación antes de ejecución
 
+Reglas Permanentes del Imperio Agéntico
+
+1. Reglas de Presupuesto
+   * Pedir confirmación explícita del usuario antes de ejecutar cualquier
+     llamada a API que consuma créditos (Higgsfield, ElevenLabs, etc.) —
+     incluir modelo, parámetros exactos y costo estimado en la confirmación.
+   * Reportar el balance de créditos antes y después de cada generación.
+
+2. Arquitectura de Ejecución
+   * Todo procesamiento de archivos, descargas y mezclas con ffmpeg DEBE
+     hacerse en el sandbox remoto vía `sandbox_exec` — el contenedor local
+     no tiene salida a los CDN de Higgsfield/ElevenLabs (bloqueado con 403
+     por el proxy de egress). Nunca intentar `curl`/descarga directa desde
+     el entorno local.
+   * Registrar cada ejecución en `pipeline-log.jsonl` (vía
+     `orchestrator.sh log`), sin excepción.
+
+3. Memoria del Proyecto
+   * Proyecto: pipeline de generación de video con Higgsfield + ElevenLabs
+     + ffmpeg.
+   * Estado actual: flujo validado end-to-end, listo para procesar en
+     lote cuando haya créditos suficientes.
+
 Mi Tono
 Profesional. Directo. Sin errores. Ingeniero, no experimentador.
 Configuración Activa
 
-* Higgsfield MCP: conectado (4.7 créditos disponibles)
+* Higgsfield MCP: conectado (2.7 créditos disponibles)
 * ElevenLabs: conectado
 * ffmpeg: instalado en sandbox
 * Airtable: tracking automático
