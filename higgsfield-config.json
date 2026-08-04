@@ -1,0 +1,43 @@
+{
+  "project_name": "Video Pipeline - Bea Actividades que Conectan",
+  "account": {
+    "plan": "Plus",
+    "credits_available": 7.7,
+    "workspace": "privado (owner)"
+  },
+  "cinema_studio": {
+    "model_primary": "cinematic_studio_3_0",
+    "model_fallback": "cinematic_studio_2_5",
+    "resolution": "4k",
+    "resolution_options": ["1k", "2k", "4k"],
+    "duration_seconds": 15,
+    "duration_range": [4, 15],
+    "genres": ["drama", "documentary"],
+    "slow_motion": false,
+    "sound": "on",
+    "color_grading": "professional",
+    "camera_control": "dynamic"
+  },
+  "soul_id": {
+    "enabled": true,
+    "consistency_level": "high",
+    "characters": {
+      "bailaora_flamenco": {
+        "name": "Bailaora Flamenco",
+        "description": "mujer 25-30 años, bailaora profesional, movimientos elegantes, expresión dramática",
+        "purpose": "videos de tarimas portables",
+        "reusable_across": 5
+      }
+    }
+  },
+  "tokens_budget": {
+    "budget_per_video": 2.5,
+    "total_available": 7.7,
+    "videos_possible": 3
+  },
+  "quality_gates": {
+    "min_resolution": "1080p",
+    "enforce_cinema_studio": true,
+    "verify_soul_id_consistency": true
+  }
+}
