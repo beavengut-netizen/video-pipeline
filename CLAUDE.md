@@ -27,8 +27,28 @@ Mi Tono
 Profesional. Directo. Sin errores. Ingeniero, no experimentador.
 Configuración Activa
 
-* Higgsfield MCP: conectado (7.7 créditos disponibles)
+* Higgsfield MCP: conectado (4.7 créditos disponibles)
 * ElevenLabs: conectado
 * ffmpeg: instalado en sandbox
 * Airtable: tracking automático
 * GitHub: repo video-pipeline en main
+
+Nota de Arquitectura — descarga/mezcla de assets
+El contenedor donde corre Claude Code tiene salida de red restringida por
+política de la organización: no puede hacer `curl` directo a los CDN de
+Higgsfield ni de ElevenLabs (bloqueado con 403 por el proxy de egress).
+Por eso `orchestrator.sh` no descarga ni mezcla localmente — genera el
+comando y lo ejecuta el sandbox remoto de Higgsfield
+(`mcp__Higgsfield__sandbox_exec`), que sí tiene salida a internet y ffmpeg
+preinstalado. Ver `orchestrator.sh build-sandbox-cmd` y su cabecera para el
+flujo completo.
+
+Registro de Pipeline
+
+* 2026-08-04 — Primer video de prueba generado end-to-end (Higgsfield →
+  ElevenLabs → ffmpeg en sandbox). Excepción documentada a la regla 3:
+  se usó `cinematic_studio_video_v2` (3 créditos) en vez de Cinema Studio
+  3.0, porque la config más barata de 3.0 cuesta 14 créditos y el balance
+  era de 7.7 — decisión explícita del usuario para validar calidad antes
+  de gastar más. Resultado: calidad aprobada, pero no se usará en
+  producción. Balance resultante: 4.7 créditos.
