@@ -1,0 +1,47 @@
+{
+  "elevenlabs_api": {
+    "service": "ElevenLabs",
+    "version": "v1",
+    "plan": "conectado a Pro (Claude)"
+  },
+  "voice_profiles": {
+    "narrator_female": {
+      "name": "Narrator Female - Professional",
+      "gender": "female",
+      "age_range": "28-35",
+      "tone": "warm, clear, professional",
+      "use_case": "narración productos educativos"
+    },
+    "narrator_male": {
+      "name": "Narrator Male - Professional",
+      "gender": "male",
+      "age_range": "30-40",
+      "tone": "authoritative, warm",
+      "use_case": "backup si necesario"
+    }
+  },
+  "audio_parameters": {
+    "stability": 0.75,
+    "similarity_boost": 0.85,
+    "style": 0,
+    "use_speaker_boost": true,
+    "language": "es-ES",
+    "voice_id": "auto_select_by_gender"
+  },
+  "output_format": {
+    "format": "mp3",
+    "bitrate": "128k",
+    "sample_rate": "44100Hz"
+  },
+  "quality_gates": {
+    "enforce_female_voice": true,
+    "min_stability": 0.7,
+    "verify_language_spanish": true
+  },
+  "production_rules": {
+    "rule_1": "SIEMPRE especificar gender: female en cada llamada",
+    "rule_2": "NUNCA aceptar voz incorrecta — regenerar sin costo",
+    "rule_3": "Estabilidad mínima 0.75 para producción",
+    "rule_4": "Tone debe ser profesional y cálido"
+  }
+}
