@@ -1,0 +1,15 @@
+# Runtime artifacts from pipeline execution
+pipeline-log.jsonl
+.airtable-sync-state
+.airtable-sync-pending.json
+
+# Video and media files (never commit binaries)
+raw_video_*.mp4
+raw_audio_*.mp3
+output_final.mp4
+
+# Generated output manifests (contain CDN URLs, not binaries)
+output/
+
+# Manual video copies (users download these locally)
+videos/
