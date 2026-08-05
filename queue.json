@@ -1,0 +1,23 @@
+[
+  {
+    "id": "tarima-bailaora-001",
+    "product": "Tarima port\u00e1til - Bailaora flamenco (video)",
+    "type": "video",
+    "model": "cinematic_studio_3_0",
+    "prompt": "Professional flamenco dancer, woman around 28 years old, elegant dramatic movements, passionate expression, dancing on a portable wooden event stage (tarima) outdoors at dusk, wearing a red flamenco dress with ruffles, warm string lights and ambient stage lighting, mountain landscape in the background, cinematic composition, professional product marketing photography, shallow depth of field, warm golden hour tones",
+    "params": {
+      "resolution": "480p",
+      "genre": "drama",
+      "generate_audio": false,
+      "duration": 4,
+      "aspect_ratio": "16:9"
+    },
+    "estimated_credits": 14,
+    "status": "requiere_confirmacion_individual",
+    "result_url": null,
+    "output_file": null,
+    "notes": "Siguiente paso del concepto ya validado como imagen fija (cinematic_studio_2_5, ver pipeline-log.jsonl 2026-08-04). Cinema Studio 3.0 real por regla 3 \u2014 14 cr\u00e9ditos es la config m\u00e1s barata del modelo, supera el tope de lote de 3 cr\u00e9ditos y el balance actual (2.7), as\u00ed que requiere confirmaci\u00f3n individual y recarga de cr\u00e9ditos, no procesamiento autom\u00e1tico de lote.",
+    "created_at": "2026-08-04T23:10:00Z",
+    "updated_at": "2026-08-05T01:48:29.638764Z"
+  }
+]
