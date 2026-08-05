@@ -30,6 +30,22 @@ Reglas Permanentes del Imperio Agéntico
      llamada a API que consuma créditos (Higgsfield, ElevenLabs, etc.) —
      incluir modelo, parámetros exactos y costo estimado en la confirmación.
    * Reportar el balance de créditos antes y después de cada generación.
+   * Excepción de lote (procesamiento de `queue.json`): en vez de una
+     confirmación por ítem, se muestra UN resumen del lote completo antes
+     de tocar nada —
+       - Videos/assets a generar: N
+       - Créditos totales estimados: suma de todos los ítems
+       - Máximo permitido: 3 créditos por generación
+     El usuario confirma el lote entero una sola vez ("✅ Generar" /
+     "❌ Cancelar"); recién ahí Higgsfield genera, ElevenLabs genera audio,
+     ffmpeg mezcla (en sandbox) y se trackea en Airtable/`pipeline-log.jsonl`.
+     Todo ítem que cueste más de 3 créditos por generación queda EXCLUIDO
+     del lote automático (p. ej. cualquier render con Cinema Studio 3.0) y
+     vuelve a requerir confirmación individual como manda la regla general.
+     `orchestrator.sh` nunca invoca estas APIs por sí mismo — solo calcula
+     el plan del lote (tope de 3 créditos, balance disponible) y actualiza
+     `queue.json`/`pipeline-log.jsonl`; las llamadas reales las dispara
+     Claude vía MCP después de la confirmación.
 
 2. Arquitectura de Ejecución
    * Todo procesamiento de archivos, descargas y mezclas con ffmpeg DEBE
